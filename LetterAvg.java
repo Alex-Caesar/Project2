@@ -1,9 +1,14 @@
 
-public class LetterAvg  extends PosAvg //extends MesoInherit 
+public class LetterAvg extends MesoInherit	//extends MesoInherit 
 {
 	
 	public LetterAvg(char c){
 		
+	}
+
+	public LetterAvg() {
+		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	public String numberOfStationWithLetterAvg() {

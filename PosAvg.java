@@ -5,14 +5,35 @@ public class PosAvg extends MesoInherit
 {
 	private String stID;
 	MesoStation Meso;
+	ArrayList<MesoStation> stations;
 	
 	public PosAvg(String stID) throws IOException  {
 		super(new MesoStation(stID));
 		this.stID=stID;
 		this.Meso= new MesoStation(stID);
+		stations=super.getStations();
 	}
 	
-	public String indexOfStationAV(int statAv,ArrayList<MesoStation> stations)	{
+	public String getStID() {
+		return stID;
+	}
+
+	public MesoStation getMeso() {
+		return Meso;
+	}
+
+	public ArrayList<MesoStation> getStations() {
+		return stations;
+	}
+
+	public PosAvg() {
+		// TODO Auto-generated constructor stub
+		super();
+	}
+
+	public String indexOfStationAV()	{
+		int statAv=this.indexOfStation();
+		
 		//pre String
 		String out="This index is average of ";
 		
@@ -46,7 +67,7 @@ public class PosAvg extends MesoInherit
 	}
 	
 	
-	public int indexOfStation (String id , ArrayList<MesoStation> stations) {
+	public int indexOfStation () {
 		//to be returned
 		int stationNum=0;
 		//loop for finding stat
@@ -55,7 +76,7 @@ public class PosAvg extends MesoInherit
 			
 			String tempStat=(stations.get(index)).getStID();
 		
-			if(tempStat==id) {
+			if(tempStat==stID) {
 			stationNum=index;	
 			}
 			

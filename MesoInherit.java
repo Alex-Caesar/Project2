@@ -10,14 +10,20 @@ public class MesoInherit extends MesoAbstract
 	public MesoInherit(MesoStation Meso) throws IOException{
 		//readIn
 		readIn("Mesonet.txt");
-		
+		/*
 		//creating objects to return
 		PosAvg posavg=new PosAvg();
 		LetterAvg letteravg=new LetterAvg();
+		*/
 		
 	}
 	
-	
+	public MesoInherit() {
+		// TODO Auto-generated constructor stub
+		super();
+	}
+
+
 	public void readIn(String filename) throws IOException
     {
     	//creating BufferReader
@@ -65,6 +71,18 @@ public class MesoInherit extends MesoAbstract
 
 	public void setStations(ArrayList<MesoStation> stations) {
 		this.stations = stations;
+	}
+
+	@Override
+	int[] calAverage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	char letterAverage() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	
