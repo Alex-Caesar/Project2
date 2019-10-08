@@ -77,21 +77,19 @@ public class PosAvg extends MesoInherit
 			
 			String tempStat=(stations.get(index)).getStID();
 		
-			if(tempStat==stID) {
+			if(tempStat.equals(stID)) {
 			stationNum=index;	
 			}
 			
 			index++;
 		}
-		
+		stationNum++;
 		return stationNum;
 	}
 	
 	
 	@Override
 	public String toString() {
-		
-	int indexFind=indexOfStation();
 	
 	String outToString=this.indexOfStationAV();
 	//System.out.println(outToString);

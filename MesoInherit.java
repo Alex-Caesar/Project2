@@ -8,6 +8,7 @@ public class MesoInherit extends MesoAbstract
 	private ArrayList<MesoStation> stations;
 	
 	public MesoInherit(MesoStation Meso) throws IOException{
+		stations=new ArrayList<MesoStation>(10);
 		//readIn
 		readIn("Mesonet.txt");
 		/*
@@ -15,12 +16,12 @@ public class MesoInherit extends MesoAbstract
 		PosAvg posavg=new PosAvg();
 		LetterAvg letteravg=new LetterAvg();
 		*/
-		
 	}
 	
 	public MesoInherit() {
 		// TODO Auto-generated constructor stub
 		super();
+		stations=new ArrayList<MesoStation>(10);
 	}
 
 
@@ -44,9 +45,9 @@ public class MesoInherit extends MesoAbstract
     	stations=expandArray(stations);
     	}*/
     	
-    	tempRead=tempRead.substring(4,8);
+    	tempRead=tempRead.substring(1,5);
     	MesoStation MesoTemp=new MesoStation(tempRead);
-    	getStations().add(i, MesoTemp);
+    	stations.add(i, MesoTemp);
     	i++;
     	
     	tempRead=mesonetRead.readLine();
