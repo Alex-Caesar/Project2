@@ -83,7 +83,9 @@ public class PosAvg extends MesoInherit
 			
 			index++;
 		}
+		//accounting for zero indexed
 		stationNum++;
+		
 		return stationNum;
 	}
 	
