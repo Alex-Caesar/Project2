@@ -1,5 +1,5 @@
 
-public class LetterAvg extends MesoInherit	//extends MesoInherit 
+public class LetterAvg extends PosAvg	//extends MesoInherit 
 {
 	
 	public LetterAvg(char c){
@@ -9,6 +9,7 @@ public class LetterAvg extends MesoInherit	//extends MesoInherit
 	public LetterAvg() {
 		// TODO Auto-generated constructor stub
 		super();
+		stations=super.getStations();
 	}
 
 	public String numberOfStationWithLetterAvg() {

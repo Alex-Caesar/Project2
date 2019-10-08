@@ -4,8 +4,8 @@ import java.util.ArrayList;
 public class PosAvg extends MesoInherit
 {
 	private String stID;
-	MesoStation Meso;
-	ArrayList<MesoStation> stations;
+	public MesoStation Meso;
+	public ArrayList<MesoStation> stations;
 	
 	public PosAvg(String stID) throws IOException  {
 		super(new MesoStation(stID));
@@ -29,6 +29,7 @@ public class PosAvg extends MesoInherit
 	public PosAvg() {
 		// TODO Auto-generated constructor stub
 		super();
+		stations=super.getStations();
 	}
 
 	public String indexOfStationAV()	{
@@ -86,15 +87,15 @@ public class PosAvg extends MesoInherit
 		return stationNum;
 	}
 	
-	/*	
+	
 	@Override
-	public void toString() {
+	public String toString() {
 		
 	int indexFind=indexOfStation();
-	String stat=stations.
 	
-		
+	String outToString=this.indexOfStationAV();
+	//System.out.println(outToString);
+	return outToString;
 	}
-	*/
 	
 }
