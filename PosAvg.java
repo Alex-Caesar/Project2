@@ -5,7 +5,7 @@ public class PosAvg extends MesoInherit
 {
 	public String stID;
 	public MesoStation Meso;
-	public ArrayList<MesoStation> stations;
+	//public ArrayList<MesoStation> stations;
 	
 	public PosAvg(String stID) throws IOException  {
 		super(new MesoStation(stID));
@@ -43,11 +43,15 @@ public class PosAvg extends MesoInherit
 		String tempStr= tempStat.getStID();
 		out=out.concat(tempStr);
 		
+		statAv++;
+		
 		out=out.concat(" and ");
 		
 		tempStat =stations.get(statAv +1);
 		tempStr= tempStat.getStID();
 		out=out.concat(tempStr);
+		
+		statAv--;
 		
 		out=out.concat(", ");
 		
@@ -55,12 +59,18 @@ public class PosAvg extends MesoInherit
 		tempStat =stations.get(statAv -2);
 		tempStr= tempStat.getStID();
 		out=out.concat(tempStr);
+		
+		statAv++;
+		statAv++;
 
 		out=out.concat(" and ");
 		
 		tempStat =stations.get(statAv +2);
 		tempStr= tempStat.getStID();
 		out=out.concat(tempStr);
+		
+		statAv--;
+		statAv--;
 
 		out=out.concat(", and so on.");
 		

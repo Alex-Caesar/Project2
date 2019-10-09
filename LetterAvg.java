@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class LetterAvg extends PosAvg	//extends MesoInherit 
 {
 	
-	private ArrayList<MesoStation> stations;
+	//private ArrayList<MesoStation> stations;
 	String stID;
 	char c;
 	char[] charArray;
@@ -18,9 +18,13 @@ public class LetterAvg extends PosAvg	//extends MesoInherit
 		
 		stations=super.getStations();
 		this.stID=stID;
+		this.length=3;
+		this.charArray=new char[length];
+		this.asciiVals=new int[length];
+		this.asciiAV=new int[length];
 		this.createCharArray();
 		this.createAsciiArray();
-		asciiAV=new int[3];
+
 	}
 	
 	public LetterAvg(char c) {
@@ -47,16 +51,12 @@ public class LetterAvg extends PosAvg	//extends MesoInherit
 	
 	public void createCharArray() {
 		
-		this.charArray=new char[length];
-		
-		for(int i=0;i<length;i++) {
+		for(int i=0;i<(length-1);i++) {
 		charArray[i]=stID.charAt(i);
 		}	
 	}
 	
 	public void createAsciiArray() {
-		
-		this.asciiVals=new int[length];
 		
 		for(int i=0;i<length;i++) {
 		asciiVals[i]=(int)charArray[i];
