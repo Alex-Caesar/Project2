@@ -3,19 +3,19 @@ import java.util.ArrayList;
 
 public class PosAvg extends MesoInherit
 {
-	public String stID;
+	public String posStID;
 	public MesoStation Meso;
-	//public ArrayList<MesoStation> stations;
+	public ArrayList<MesoStation> stations;
 	
-	public PosAvg(String stID) throws IOException  {
-		super(new MesoStation(stID));
-		this.stID=stID;
+	public PosAvg(String stID) throws IOException {
+		//super(new MesoStation(stID));
+		this.posStID=stID;
 		this.Meso= new MesoStation(stID);
 		stations=super.getStations();
 	}
 	
 	public String getStID() {
-		return stID;
+		return posStID;
 	}
 
 	public MesoStation getMeso() {
@@ -87,7 +87,7 @@ public class PosAvg extends MesoInherit
 			
 			String tempStat=(stations.get(index)).getStID();
 		
-			if(tempStat.equals(stID)) {
+			if(tempStat.equals(posStID)) {
 			stationNum=index;	
 			}
 			

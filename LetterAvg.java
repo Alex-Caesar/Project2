@@ -4,7 +4,7 @@ public class LetterAvg extends PosAvg	//extends MesoInherit
 {
 	
 	//private ArrayList<MesoStation> stations;
-	String stID;
+	String LetterstID;
 	char c;
 	char[] charArray;
 	int letterAvg;
@@ -14,10 +14,10 @@ public class LetterAvg extends PosAvg	//extends MesoInherit
 	char asciiAvChar;
 	
 	public LetterAvg(String stID){
-		super();
+		//super();
 		
 		stations=super.getStations();
-		this.stID=stID;
+		this.LetterstID=super.getStID();
 		this.length=3;
 		this.charArray=new char[length];
 		this.asciiVals=new int[length];
@@ -31,6 +31,7 @@ public class LetterAvg extends PosAvg	//extends MesoInherit
 		super();
 		this.c=c;
 		stations=super.getStations();
+		this.LetterstID=super.getStID();
 	}
 	
 	public int numberOfStationWithLetterAvg() {
@@ -50,10 +51,15 @@ public class LetterAvg extends PosAvg	//extends MesoInherit
 	}
 	
 	public void createCharArray() {
-		
-		for(int i=0;i<(length-1);i++) {
+		charArray[0]=LetterstID.charAt(0);
+		charArray[0]=LetterstID.charAt(1);
+		charArray[0]=LetterstID.charAt(2);
+		charArray[0]=LetterstID.charAt(4);
+		/*
+		for(int i=0;i<(charArray.length)-1;i++) {
 		charArray[i]=stID.charAt(i);
 		}	
+		*/
 	}
 	
 	public void createAsciiArray() {
@@ -100,7 +106,7 @@ public class LetterAvg extends PosAvg	//extends MesoInherit
 		return stations;
 	}
 	public String getStID() {
-		return stID;
+		return LetterstID;
 	}
 	public char[] getCharArray() {
 		return charArray;

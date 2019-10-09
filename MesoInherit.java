@@ -12,11 +12,13 @@ public class MesoInherit extends MesoAbstract
 	
 	public MesoInherit(MesoStation Meso) throws IOException{
 		stations=new ArrayList<MesoStation>(10);
+		//get stID
+		this.stID=Meso.getStID();
 		//readIn
 		readIn("Mesonet.txt");
 		
 		//creating objects to return
-		posavg=new PosAvg();
+		posavg=new PosAvg(stID);
 		letteravg=new LetterAvg(stID);
 		
 	}
