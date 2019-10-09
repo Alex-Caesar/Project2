@@ -28,7 +28,9 @@ public class PosAvg extends MesoInherit
 
 	public PosAvg() {
 		// TODO Auto-generated constructor stub
-		super();
+		//super();
+		this.posStID=stID;
+		this.Meso= new MesoStation(stID);
 		stations=super.getStations();
 	}
 
@@ -39,7 +41,7 @@ public class PosAvg extends MesoInherit
 		String out="This index is average of ";
 		
 		//stations for av n+1
-		MesoStation tempStat =stations.get(statAv -1);
+		MesoStation tempStat =stations.get(statAv-1);
 		String tempStr= tempStat.getStID();
 		out=out.concat(tempStr);
 		
@@ -47,7 +49,7 @@ public class PosAvg extends MesoInherit
 		
 		out=out.concat(" and ");
 		
-		tempStat =stations.get(statAv +1);
+		tempStat =stations.get(statAv+1);
 		tempStr= tempStat.getStID();
 		out=out.concat(tempStr);
 		
@@ -56,7 +58,7 @@ public class PosAvg extends MesoInherit
 		out=out.concat(", ");
 		
 		//stations for av n+2
-		tempStat =stations.get(statAv -2);
+		tempStat =stations.get(statAv-2);
 		tempStr= tempStat.getStID();
 		out=out.concat(tempStr);
 		
@@ -65,7 +67,7 @@ public class PosAvg extends MesoInherit
 
 		out=out.concat(" and ");
 		
-		tempStat =stations.get(statAv +2);
+		tempStat =stations.get(statAv+2);
 		tempStr= tempStat.getStID();
 		out=out.concat(tempStr);
 		

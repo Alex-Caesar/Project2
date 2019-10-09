@@ -17,8 +17,8 @@ public class LetterAvg extends PosAvg	//extends MesoInherit
 		//super();
 		
 		stations=super.getStations();
-		this.LetterstID=super.getStID();
-		this.length=3;
+		this.LetterstID=stID;
+		this.length=4;
 		this.charArray=new char[length];
 		this.asciiVals=new int[length];
 		this.asciiAV=new int[length];
@@ -54,7 +54,7 @@ public class LetterAvg extends PosAvg	//extends MesoInherit
 		charArray[0]=LetterstID.charAt(0);
 		charArray[0]=LetterstID.charAt(1);
 		charArray[0]=LetterstID.charAt(2);
-		charArray[0]=LetterstID.charAt(4);
+		charArray[0]=LetterstID.charAt(3);
 		/*
 		for(int i=0;i<(charArray.length)-1;i++) {
 		charArray[i]=stID.charAt(i);
@@ -63,10 +63,14 @@ public class LetterAvg extends PosAvg	//extends MesoInherit
 	}
 	
 	public void createAsciiArray() {
-		
+		asciiVals[0]=(int)charArray[0];
+		asciiVals[1]=(int)charArray[1];
+		asciiVals[2]=(int)charArray[2];
+		asciiVals[3]=(int)charArray[3];
+		/*
 		for(int i=0;i<length;i++) {
 		asciiVals[i]=(int)charArray[i];
-		}	
+		}	*/
 	}
 	
 	public void getletterAvg() {
@@ -98,7 +102,7 @@ public class LetterAvg extends PosAvg	//extends MesoInherit
 		//giving asciiAv data
 		asciiAV[0]=asciiCeil;
 		asciiAV[1]=asciiFloor;
-		asciiAV[3]=asciiAvNum;
+		asciiAV[2]=asciiAvNum;
 		
 		this.letterAvg=asciiAvNum;
 	}
