@@ -5,17 +5,20 @@ import java.util.ArrayList;
 
 public class MesoInherit extends MesoAbstract
 {
-	private ArrayList<MesoStation> stations;
+	public ArrayList<MesoStation> stations;
+	public String stID;
+	PosAvg posavg;
+	LetterAvg letteravg;
 	
 	public MesoInherit(MesoStation Meso) throws IOException{
 		stations=new ArrayList<MesoStation>(10);
 		//readIn
 		readIn("Mesonet.txt");
-		/*
+		
 		//creating objects to return
-		PosAvg posavg=new PosAvg();
-		LetterAvg letteravg=new LetterAvg();
-		*/
+		posavg=new PosAvg();
+		letteravg=new LetterAvg(stID);
+		
 	}
 	
 	public MesoInherit() {
@@ -77,13 +80,14 @@ public class MesoInherit extends MesoAbstract
 	@Override
 	int[] calAverage() {
 		// TODO Auto-generated method stub
-		return null;
+		return letteravg.getAsciiAV();
 	}
 
 	@Override
 	char letterAverage() {
 		// TODO Auto-generated method stub
-		return 0;
+		char c= letteravg.asciiAvChar;
+		return c;
 	}
 	
 	

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class PosAvg extends MesoInherit
 {
-	private String stID;
+	public String stID;
 	public MesoStation Meso;
 	public ArrayList<MesoStation> stations;
 	

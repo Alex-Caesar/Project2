@@ -6,7 +6,7 @@ import java.util.ArrayList;
 */
 public class MesoStation 
 {
-	private String stID;
+	public String stID;
 	
 	public MesoStation(String stId)
 	{

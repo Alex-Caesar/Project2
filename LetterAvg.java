@@ -4,39 +4,48 @@ public class LetterAvg extends PosAvg	//extends MesoInherit
 {
 	
 	private ArrayList<MesoStation> stations;
-	char c;
 	String stID;
+	char c;
 	char[] charArray;
 	int letterAvg;
 	int[] asciiVals;
 	int[] asciiAV;
 	int length;
+	char asciiAvChar;
 	
+	public LetterAvg(String stID){
+		super();
+		
+		stations=super.getStations();
+		this.stID=stID;
+		this.createCharArray();
+		this.createAsciiArray();
+		asciiAV=new int[3];
+	}
 	
-	public LetterAvg(){
+	public LetterAvg(char c) {
 		super();
 		this.c=c;
 		stations=super.getStations();
-		stID=super.getStID();
-		this.createCharArray();
-		this.createAsciiArray();
-		asciiAV=new int[2];
 	}
-	/*
-	public LetterAvg() {
-		// TODO Auto-generated constructor stub
-		super();
-		stations=super.getStations();
-	}
-	*/
-	public String numberOfStationWithLetterAvg() {
+	
+	public int numberOfStationWithLetterAvg() {
 		// TODO Auto-generated method stub
-		return null;
+		int amount=0;
+		
+		for(int i=0;i<stations.size();i++) {
+			String temp=(stations.get(i)).getStID();
+			char temper=temp.charAt(0);
+			temp=String.valueOf(temper);
+			if(temp.equals(asciiAvChar)) {
+			amount++;
+			}
+			}	
+		
+		return amount;
 	}
 	
 	public void createCharArray() {
-		
-		this.length = stID.length();
 		
 		this.charArray=new char[length];
 		
@@ -46,8 +55,6 @@ public class LetterAvg extends PosAvg	//extends MesoInherit
 	}
 	
 	public void createAsciiArray() {
-		
-		this.length = stID.length();
 		
 		this.asciiVals=new int[length];
 		
@@ -61,8 +68,8 @@ public class LetterAvg extends PosAvg	//extends MesoInherit
 		double charAverage=0;
 		int asciiCeil=0;
 		int asciiFloor=0;
-		int asciiAv=0;
-		char asciiAvChar='a';
+		int asciiAvNum=0;
+			//this.asciiAvChar='a';
 		//loop for adding ascii
 		for(int i=0;i<length;i++) {
 			charAverage+=asciiVals[i];
@@ -74,24 +81,23 @@ public class LetterAvg extends PosAvg	//extends MesoInherit
 		asciiCeil=(int)Math.floor(charAverage);
 		//determining average
 		if(charAverage%10>0.5) {
-			asciiAv=asciiCeil;
+			asciiAvNum=asciiCeil;
 		}
 		else {
-			asciiAv=asciiFloor;
+			asciiAvNum=asciiFloor;
 		}
 		//finding average char
 		//asciiAvChar=Character.toString((char)asciiAv);
-		asciiAvChar=(char)asciiAv;
+		asciiAvChar=(char)asciiAvNum;
 		//giving asciiAv data
 		asciiAV[0]=asciiCeil;
 		asciiAV[1]=asciiFloor;
-		asciiAV[3]=asciiAv;
+		asciiAV[3]=asciiAvNum;
+		
+		this.letterAvg=asciiAvNum;
 	}
 	public ArrayList<MesoStation> getStations() {
 		return stations;
-	}
-	public char getC() {
-		return c;
 	}
 	public String getStID() {
 		return stID;
@@ -108,6 +114,10 @@ public class LetterAvg extends PosAvg	//extends MesoInherit
 	public int[] getAsciiAV() {
 		return asciiAV;
 	}
+	public char getAsciiAvChar() {
+		return asciiAvChar;
+	}
+
 	public int getLength() {
 		return length;
 	}
