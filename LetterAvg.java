@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class LetterAvg extends PosAvg // extends MesoInherit
 {
 
-	private static ArrayList<MesoStation> stations;
+	private ArrayList<MesoStation> stations;
 	String LetterstID;
 	char c;
 	char[] charArray;
@@ -14,13 +14,12 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 	int[] asciiVals;
 	int[] asciiAV;
 	int length;
-	static char asciiAvChar;
+	 char asciiAvChar;
 
 	public LetterAvg(String stID) throws IOException {
 		// super();
 		this.stations=new ArrayList<MesoStation>(10);
 		this.readIn("Mesonet.txt");
-		//stations = super.getStations();
 		this.LetterstID = stID;
 		this.length = 4;
 		this.charArray = new char[length];
@@ -66,16 +65,22 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 		this.LetterstID = super.getStID();
 	}
 
-	public static int numberOfStationWithLetterAvg() {
+	public int numberOfStationWithLetterAvg() throws IOException {
 		// TODO Auto-generated method stub
+		this.stations=new ArrayList<MesoStation>(10);
+		this.readIn("Mesonet.txt");
+		
 		int amount = 0;
 		int size4loop=stations.size();
 		String checkForChar=Character.toString ((char) asciiAvChar);
-		for (int i = 0; i < size4loop; i++) {
+		for (int i = 0; i < size4loop; i++) 
+		{
 			String temp = (stations.get(i)).getStID();
 			char temper = temp.charAt(0);
 			temp = String.valueOf(temper);
-			if (temp.equals(checkForChar)) {
+			
+			if (temp.equals(checkForChar))
+			{
 				amount++;
 			}
 		}
