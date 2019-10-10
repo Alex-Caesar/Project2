@@ -19,7 +19,12 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 	public LetterAvg(String stID) throws IOException {
 		// super();
 		this.stations=new ArrayList<MesoStation>(10);
-		this.readIn("Mesonet.txt");
+		try {
+			this.readIn("Mesonet.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.LetterstID = stID;
 		this.length = 4;
 		this.charArray = new char[length];
@@ -58,11 +63,22 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 		}
 	}
 
-	public LetterAvg(char c) {
-		super();
-		this.c = c;
-		stations = super.getStations();
-		this.LetterstID = super.getStID();
+	public LetterAvg(char c)  throws IOException{
+		this.stations=new ArrayList<MesoStation>(10);
+		try {
+			this.readIn("Mesonet.txt");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		this.LetterstID = stID;
+		this.length = 4;
+		this.charArray = new char[length];
+		this.asciiVals = new int[length];
+		this.asciiAV = new int[length];
+		this.createCharArray();
+		this.createAsciiArray();
+		this.getletterAvg();
 	}
 
 	public int numberOfStationWithLetterAvg() throws IOException {
@@ -70,7 +86,7 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 	
 		int amount = 0;
 		int size4loop=stations.size();
-		String checkForChar=Character.toString ((char) asciiAvChar);
+		String checkForChar=Character.toString (this.asciiAvChar);
 		for (int i = 0; i < size4loop; i++) 
 		{
 			String temp = (stations.get(i)).getStID();
@@ -91,9 +107,6 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 		charArray[1] = LetterstID.charAt(1);
 		charArray[2] = LetterstID.charAt(2);
 		charArray[3] = LetterstID.charAt(3);
-		/*
-		 * for(int i=0;i<(charArray.length)-1;i++) { charArray[i]=stID.charAt(i); }
-		 */
 	}
 
 	public void createAsciiArray() {
@@ -101,9 +114,6 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 		asciiVals[1] = (int) charArray[1];
 		asciiVals[2] = (int) charArray[2];
 		asciiVals[3] = (int) charArray[3];
-		/*
-		 * for(int i=0;i<length;i++) { asciiVals[i]=(int)charArray[i]; }
-		 */
 	}
 
 	public void getletterAvg() {
@@ -112,7 +122,6 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 		int asciiCeil = 0;
 		int asciiFloor = 0;
 		int asciiAvNum = 0;
-		// this.asciiAvChar='a';
 		// loop for adding ascii
 		for (int i = 0; i < length; i++) {
 			charAverage += asciiVals[i];
@@ -130,7 +139,6 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 			asciiAvNum = asciiFloor;
 		}
 		// finding average char
-		// asciiAvChar=Character.toString((char)asciiAv);
 		char lastChar = ((char) asciiAvNum);
 		// giving asciiAv data
 		asciiAV[0] = asciiCeil;

@@ -61,15 +61,6 @@ public class MesoInherit extends MesoAbstract
     	
     	mesonetRead.close();
     }
-	
-	public int getIndexCity(String city) {
-		
-		MesoStation tempStat=new MesoStation(city);
-		int indexCity=tempStat.findStation(city,stations);
-		
-		return indexCity;
-	}
-	
 
 	public ArrayList<MesoStation> getStations() {
 		return stations;
