@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class LetterAvg extends PosAvg // extends MesoInherit
 {
 
-	private ArrayList<MesoStation> stations;
+	private static ArrayList<MesoStation> stations;
 	String LetterstID;
 	char c;
 	char[] charArray;
@@ -14,7 +14,7 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 	int[] asciiVals;
 	int[] asciiAV;
 	int length;
-	char asciiAvChar;
+	static char asciiAvChar;
 
 	public LetterAvg(String stID) throws IOException {
 		// super();
@@ -30,10 +30,6 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 		this.createAsciiArray();
 		this.getletterAvg();
 
-	}
-
-	public int getReturnForNumAvg() {
-		return returnForNumAvg;
 	}
 
 	public void readIn(String filename) throws IOException {
@@ -70,7 +66,7 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 		this.LetterstID = super.getStID();
 	}
 
-	public  int numberOfStationWithLetterAvg() {
+	public static int numberOfStationWithLetterAvg() {
 		// TODO Auto-generated method stub
 		int amount = 0;
 		int size4loop=stations.size();
