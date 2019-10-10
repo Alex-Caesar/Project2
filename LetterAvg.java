@@ -15,12 +15,13 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 	int[] asciiAV;
 	int length;
 	char asciiAvChar;
+	int returnForNumAvg;
 
 	public LetterAvg(String stID) throws IOException {
 		// super();
 		this.stations=new ArrayList<MesoStation>(10);
 		this.readIn("Mesonet.txt");
-		stations = super.getStations();
+		//stations = super.getStations();
 		this.LetterstID = stID;
 		this.length = 4;
 		this.charArray = new char[length];
@@ -29,8 +30,12 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 		this.createCharArray();
 		this.createAsciiArray();
 		this.getletterAvg();
-		this.numberOfStationWithLetterAvg();
+		this.returnForNumAvg=this.numberOfStationWithLetterAvg();
 
+	}
+
+	public int getReturnForNumAvg() {
+		return returnForNumAvg;
 	}
 
 	public void readIn(String filename) throws IOException {
@@ -71,11 +76,12 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 		// TODO Auto-generated method stub
 		int amount = 0;
 		int size4loop=stations.size();
+		String checkForChar=Character.toString ((char) asciiAvChar);
 		for (int i = 0; i < size4loop; i++) {
 			String temp = (stations.get(i)).getStID();
 			char temper = temp.charAt(0);
 			temp = String.valueOf(temper);
-			if (temp.equals(asciiAvChar)) {
+			if (temp.equals(checkForChar)) {
 				amount++;
 			}
 		}
