@@ -85,7 +85,7 @@ public class MesoInherit extends MesoAbstract
 	@Override
 	char letterAverage() {
 		// TODO Auto-generated method stub
-		char c= letteravg.asciiAvChar;
+		char c= letteravg.getAsciiAvChar();
 		return c;
 	}
 	

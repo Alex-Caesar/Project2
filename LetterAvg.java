@@ -29,6 +29,7 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 		this.createCharArray();
 		this.createAsciiArray();
 		this.getletterAvg();
+		this.numberOfStationWithLetterAvg();
 
 	}
 
@@ -69,8 +70,8 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 	public int numberOfStationWithLetterAvg() {
 		// TODO Auto-generated method stub
 		int amount = 0;
-
-		for (int i = 0; i < stations.size(); i++) {
+		int size4loop=stations.size();
+		for (int i = 0; i < size4loop; i++) {
 			String temp = (stations.get(i)).getStID();
 			char temper = temp.charAt(0);
 			temp = String.valueOf(temper);
@@ -134,6 +135,7 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 		asciiAV[2] = lastChar;
 
 		this.letterAvg = asciiAvNum;
+		this.asciiAvChar=lastChar;
 	}
 
 	public ArrayList<MesoStation> getStations() {
@@ -162,10 +164,6 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 
 	public char getAsciiAvChar() {
 		return asciiAvChar;
-	}
-
-	public int getLength() {
-		return length;
 	}
 
 }
