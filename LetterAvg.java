@@ -7,6 +7,7 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 {
 
 	private ArrayList<MesoStation> stations;
+	private ArrayList<MesoStation> statsForToString;
 	String LetterstID;
 	char c;
 	char[] charArray;
@@ -71,16 +72,6 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		/*
-		this.LetterstID = stID;
-		this.length = 4;
-		this.charArray = new char[length];
-		this.asciiVals = new int[length];
-		this.asciiAV = new int[length];
-		this.createCharArray();
-		this.createAsciiArray();
-		this.getletterAvg();
-		*/
 		
 		this.c=c;
 		
@@ -90,10 +81,6 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 	public int numberOfStationWithLetterAvg() throws IOException {
 		// TODO Auto-generated method stub
 	
-		//use char c to find amount and fix constructor
-		
-		
-		
 		int amount = 0;
 		int size4loop=stations.size();
 		
