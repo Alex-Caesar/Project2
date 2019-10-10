@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class LetterAvg extends PosAvg // extends MesoInherit
 {
 
-	private ArrayList<MesoStation> stations;
+	private ArrayList<MesoStation> stationsAVG;
 	private ArrayList<MesoStation> statsForToString;
 	String LetterstID;
 	char c;
@@ -18,8 +18,7 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 	char asciiAvChar;
 
 	public LetterAvg(String stID) throws IOException {
-		// super();
-		this.stations = new ArrayList<MesoStation>(10);
+		this.stationsAVG = new ArrayList<MesoStation>(10);
 		try {
 			this.readIn("Mesonet.txt");
 		} catch (IOException e) {
@@ -38,8 +37,8 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 	}
 
 	public LetterAvg(char c) throws IOException {
-		this.stations = new ArrayList<MesoStation>(10);
-		this.stations = new ArrayList<MesoStation>(1);
+		this.stationsAVG = new ArrayList<MesoStation>(10);
+		this.stationsAVG = new ArrayList<MesoStation>(2);
 		try {
 			this.readIn("Mesonet.txt");
 		} catch (IOException e) {
@@ -70,7 +69,7 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 
 			tempRead = tempRead.substring(1, 5);
 			MesoStation MesoTemp = new MesoStation(tempRead);
-			stations.add(i, MesoTemp);
+			stationsAVG.add(i, MesoTemp);
 			i++;
 
 			tempRead = mesonetRead.readLine();
@@ -80,12 +79,14 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 
 	public int numberOfStationWithLetterAvg() throws IOException {
 		// TODO Auto-generated method stub
-
+	
+		this.statsForToString = new ArrayList<MesoStation>(10);
+		
 		int amount = 0;
-		int size4loop = stations.size();
+		int size4loop = stationsAVG.size();
 
 		for (int i = 0; i < size4loop; i++) {
-			String temp = (stations.get(i)).getStID();
+			String temp = (stationsAVG.get(i)).getStID();
 			char temper = temp.charAt(0);
 
 			int threshhold = Character.compare(c, temper);
@@ -94,8 +95,9 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 				
 				++amount;
 				
-				MesoStation addIn=stations.get(i);
-				statsForToString.set(i,addIN);
+				MesoStation addIn=stationsAVG.get(i);
+				this.statsForToString.add(addIn);
+				
 			}
 		}
 
@@ -158,10 +160,12 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 
 	@Override
 	public String toString() {
+		
 		String out ="\n"+"They are:"+"\n";
 		for(int i=0;i<statsForToString.size();++i) {
-			String temp=(stations.get(i)).getStID();
-			out.concat(temp + "\n");
+			String temp=(statsForToString.get(i)).getStID();
+			out.concat(temp);
+			//+ "\n"
 		}
 		
 		return out;
