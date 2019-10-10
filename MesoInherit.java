@@ -75,9 +75,6 @@ public class MesoInherit extends MesoAbstract
 		return stations;
 	}
 
-	public void setStations(ArrayList<MesoStation> stations) {
-		this.stations = stations;
-	}
 
 	@Override
 	int[] calAverage() {
