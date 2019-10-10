@@ -67,9 +67,7 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 
 	public int numberOfStationWithLetterAvg() throws IOException {
 		// TODO Auto-generated method stub
-		this.stations=new ArrayList<MesoStation>(10);
-		this.readIn("Mesonet.txt");
-		
+	
 		int amount = 0;
 		int size4loop=stations.size();
 		String checkForChar=Character.toString ((char) asciiAvChar);
@@ -79,9 +77,9 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 			char temper = temp.charAt(0);
 			temp = String.valueOf(temper);
 			
-			if (temp.equals(checkForChar))
+			if ((temp.equals(checkForChar))==true)
 			{
-				amount++;
+				++amount;
 			}
 		}
 
