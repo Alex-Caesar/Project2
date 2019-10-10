@@ -14,7 +14,7 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 	int[] asciiVals;
 	int[] asciiAV;
 	int length;
-	 char asciiAvChar;
+	char asciiAvChar;
 
 	public LetterAvg(String stID) throws IOException {
 		// super();
@@ -71,6 +71,7 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		/*
 		this.LetterstID = stID;
 		this.length = 4;
 		this.charArray = new char[length];
@@ -79,21 +80,31 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 		this.createCharArray();
 		this.createAsciiArray();
 		this.getletterAvg();
+		*/
+		
+		this.c=c;
+		
+		
 	}
 
 	public int numberOfStationWithLetterAvg() throws IOException {
 		// TODO Auto-generated method stub
 	
+		//use char c to find amount and fix constructor
+		
+		
+		
 		int amount = 0;
 		int size4loop=stations.size();
-		String checkForChar=Character.toString (this.asciiAvChar);
+		
 		for (int i = 0; i < size4loop; i++) 
 		{
 			String temp = (stations.get(i)).getStID();
 			char temper = temp.charAt(0);
-			temp = String.valueOf(temper);
 			
-			if ((temp.equals(checkForChar))==true)
+			int threshhold=Character.compare(c, temper);
+			
+			if (threshhold==0)
 			{
 				++amount;
 			}
