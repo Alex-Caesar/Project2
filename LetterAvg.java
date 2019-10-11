@@ -161,7 +161,7 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 	@Override
 	public String toString() {
 		
-		String out ="\n"+"They are:"+"\n";
+		String out ="\n"+"They are:";
 		for(int i=0;i<statsForToString.size();++i) 
 		{
 			String temp=(statsForToString.get(i)).getStID();
