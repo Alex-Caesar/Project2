@@ -67,7 +67,7 @@ public class PosAvg extends MesoInherit {
 		String tempStr = tempStat.getStID();
 		out = out.concat(tempStr);
 		
-		out = out.concat(", ");
+		out = out.concat(" and ");
 
 		// stations for av n+1
 		int oneStatAvMinus=statAv+1;
@@ -75,7 +75,7 @@ public class PosAvg extends MesoInherit {
 		tempStr = tempStat.getStID();
 		out = out.concat(tempStr);
 
-		out = out.concat(" and ");
+		out = out.concat(", ");
 		
 		// stations for av n-2
 		int twostatAvMinus=statAv-2;
@@ -83,9 +83,8 @@ public class PosAvg extends MesoInherit {
 		tempStr = tempStat.getStID();
 		out = out.concat(tempStr);
 
-		out = out.concat(", ");
-
-		out = out.concat("and ");
+		out = out.concat(" and ");
+		
 		// stations for av n-2
 		int twoStatAv=statAv+2;
 		tempStat = stations.get(twoStatAv);
