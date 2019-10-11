@@ -46,15 +46,6 @@ public class PosAvg extends MesoInherit {
 		mesonetRead.close();
 	}
 
-	public String getStID() {
-		return posStID;
-	}
-
-	
-	public ArrayList<MesoStation> getStations() {
-		return stations;
-	}
-
 	public PosAvg() {
 		// TODO Auto-generated constructor stub
 		// super();
