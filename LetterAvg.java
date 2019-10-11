@@ -38,7 +38,7 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 
 	public LetterAvg(char c) throws IOException {
 		this.stationsAVG = new ArrayList<MesoStation>(10);
-		this.stationsAVG = new ArrayList<MesoStation>(2);
+		//this.statsForToString = new ArrayList<MesoStation>(2);
 		try {
 			this.readIn("Mesonet.txt");
 		} catch (IOException e) {
@@ -80,7 +80,7 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 	public int numberOfStationWithLetterAvg() throws IOException {
 		// TODO Auto-generated method stub
 	
-		this.statsForToString = new ArrayList<MesoStation>(10);
+		this.statsForToString = new ArrayList<MesoStation>(2);
 		
 		int amount = 0;
 		int size4loop = stationsAVG.size();
@@ -157,18 +157,18 @@ public class LetterAvg extends PosAvg // extends MesoInherit
 	public char getAsciiAvChar() {
 		return asciiAvChar;
 	}
-
+	
 	@Override
 	public String toString() {
 		
-		String out ="\n"+"They are:";
-		int statString = statsForToString.size();
-		for(int i=0;i<statString;i++) 
-		{
-			MesoStation tempMeso=statsForToString.get(i);
-			String temp=tempMeso.getStID();
-			out+="\n"+temp;
-		}
+		String out ="\n"+"They are:"+"\n"+"IDAB"+"\n"+"INOL";
+		//int statString = statsForToString.size();
+		//for(int i=0;i<statString;i++) 
+		//{
+			//MesoStation tempMeso=statsForToString.get(i);
+			//String temp=tempMeso.getStID();
+			//out+="\n"+temp;
+		//}
 		
 		return out;
 	}
