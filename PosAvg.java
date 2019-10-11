@@ -10,7 +10,7 @@ public class PosAvg extends MesoInherit {
 
 	public PosAvg(String stID) throws IOException {
 		// super(new MesoStation(stID));
-		stations=new ArrayList<MesoStation>(10);
+		stations = new ArrayList<MesoStation>(10);
 		this.readIn("Mesonet.txt");
 		this.posStID = stID;
 		this.Meso = new MesoStation(stID);
@@ -60,40 +60,37 @@ public class PosAvg extends MesoInherit {
 		// pre String
 		String out = "This index is average of ";
 
-		// stations for av n+1
-		MesoStation tempStat = stations.get(statAv - 1);
+		// stations for av n-1
+		int oneStatAv=statAv-1;
+		MesoStation tempStat = stations.get(oneStatAv);
 		String tempStr = tempStat.getStID();
 		out = out.concat(tempStr);
+		
+		out = out.concat(", ");
 
-		statAv++;
-
-		out = out.concat(" and ");
-
-		tempStat = stations.get(statAv + 1);
+		// stations for av n+1
+		int oneStatAvMinus=statAv+1;
+		tempStat = stations.get(oneStatAvMinus);
 		tempStr = tempStat.getStID();
 		out = out.concat(tempStr);
 
-		statAv--;
+		out = out.concat(" and ");
+		
+		// stations for av n-2
+		int twostatAvMinus=statAv-2;
+		tempStat = stations.get(twostatAvMinus);
+		tempStr = tempStat.getStID();
+		out = out.concat(tempStr);
 
 		out = out.concat(", ");
 
-		// stations for av n+2
-		tempStat = stations.get(statAv - 2);
-		tempStr = tempStat.getStID();
-		out = out.concat(tempStr);
-
-		statAv++;
-		statAv++;
-
 		out = out.concat(" and ");
-
-		tempStat = stations.get(statAv + 2);
+		// stations for av n-2
+		int twoStatAv=statAv+2;
+		tempStat = stations.get(twoStatAv);
 		tempStr = tempStat.getStID();
 		out = out.concat(tempStr);
-
-		statAv--;
-		statAv--;
-
+		
 		out = out.concat(", and so on.");
 
 		return out;
