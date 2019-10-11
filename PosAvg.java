@@ -56,7 +56,8 @@ public class PosAvg extends MesoInherit {
 
 	public String indexOfStationAV() {
 		int statAv = this.indexOfStation();
-
+		statAv--;
+		
 		// pre String
 		String out = "This index is average of ";
 
@@ -84,7 +85,7 @@ public class PosAvg extends MesoInherit {
 
 		out = out.concat(", ");
 
-		out = out.concat(" and ");
+		out = out.concat("and ");
 		// stations for av n-2
 		int twoStatAv=statAv+2;
 		tempStat = stations.get(twoStatAv);
@@ -121,7 +122,6 @@ public class PosAvg extends MesoInherit {
 	public String toString() {
 
 		String outToString = this.indexOfStationAV();
-		// System.out.println(outToString);
 		return outToString;
 	}
 
